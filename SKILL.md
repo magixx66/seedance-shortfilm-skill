@@ -1,6 +1,6 @@
 ---
 name: qisheng-seedance-director
-description: Direct, storyboard, write, refine, and diagnose Seedance AI short films and short dramas. Use when the user asks for Seedance prompts, a 15-second AI film, multi-shot AI drama, shot breakdowns, camera or lighting design, reference-media assignments, character consistency, first/last-frame continuity, or fixes for failed video generations. Also trigger for requests such as “做个九一八短剧”, “把这个镜头优化一下”, “参考这个视频运镜”, and “用我的 Seedance Skill”.
+description: Direct, storyboard, write, refine, and diagnose Seedance AI short films and short dramas. Use when the user asks for Seedance prompts, a 15-second AI film, multi-shot AI drama, shot breakdowns, camera or lighting design, reference-media assignments, character consistency, first/last-frame continuity, or fixes for failed video generations. Also trigger for requests such as “做个雨夜重逢短片”, “把这个镜头优化一下”, “参考这个视频运镜”, and “用我的 Seedance Skill”.
 ---
 
 # Qisheng Seedance Director
@@ -83,4 +83,3 @@ For a prompt-only request, return the finished prompt first, followed by a short
 ## Generation boundary
 
 Drafting prompts, shot plans, and reference assignments is the default. Submit an actual generation job only when the user asks for generation and an appropriate tool is available. Before submission, confirm the current constraints listed in [references/system-constraints.md](references/system-constraints.md). Never provide methods to bypass content moderation, identity protections, face checks, or safety filters.
-
