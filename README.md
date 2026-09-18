@@ -33,3 +33,6 @@
 
 仓库可以命名为 seedance-shortfilm-skill，安装目录应保持为 qisheng-seedance-director，以匹配 Skill 名称。
 
+## License
+
+本项目采用 MIT License。四个参考仓库及其原始内容仍分别遵循各自的许可证或版权声明，具体见 SOURCES.md。
