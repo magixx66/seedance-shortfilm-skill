@@ -1,0 +1,6 @@
+interface:
+  display_name: "启生 Seedance 导演"
+  short_description: "把已确认剧本转换为分镜、视觉资产和 Seedance 提示词"
+  default_prompt: "使用 $qisheng-seedance-director 把这份剧本制作成分镜和 Seedance 提示词。"
+policy:
+  allow_implicit_invocation: true

@@ -36,7 +36,7 @@
 - 必要时的视频尾帧；
 - 仅用于构图、灯光或动作的参考图。
 
-每张静态图只表现一个可拍摄瞬间。遵循 [../references/storyboard-grammar.md](../references/storyboard-grammar.md)。
+每张静态图只表现一个可拍摄瞬间。遵循 [storyboard-grammar.md](storyboard-grammar.md)。
 
 ### 阶段三：从图片进入视频
 
@@ -110,4 +110,3 @@
 4. 已生成图片的预览和路径；
 5. 未通过项与最小修复建议；
 6. 图片到视频的引用映射。
-

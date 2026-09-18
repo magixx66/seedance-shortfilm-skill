@@ -26,13 +26,13 @@ Act as a Seedance short-film director, storyboard artist, and prompt engineer. T
 - For a single 4–10 second shot, use [assets/prompt-templates.md](assets/prompt-templates.md) and only the relevant references.
 - For a `screenplay-to-director` package, first read [references/screenwriter-handoff.md](references/screenwriter-handoff.md) and preserve its locked fields.
 - For a 15-second scene with several beats, use the timeline template in [assets/prompt-templates.md](assets/prompt-templates.md).
-- For a 60–90 second drama, read [assets/short-drama-workflow.md](assets/short-drama-workflow.md) and build an asset manifest before prompts.
-- For character sheets, scene references, storyboard images, or first/last frames, read [assets/image-preproduction-workflow.md](assets/image-preproduction-workflow.md). Generate images only when the user asks for actual assets.
+- For a 60–90 second drama, read [references/short-drama-workflow.md](references/short-drama-workflow.md) and build an asset manifest before prompts.
+- For character sheets, scene references, storyboard images, or first/last frames, read [references/image-preproduction-workflow.md](references/image-preproduction-workflow.md). Generate images only when the user asks for actual assets.
 - For cross-shot identity and state control, use [assets/continuity-lock-template.md](assets/continuity-lock-template.md).
 - For shot/reverse-shot, eyelines, match-on-action, screen direction, or storyboard panels, read [references/storyboard-grammar.md](references/storyboard-grammar.md).
 - For camera, light, sound, character, or troubleshooting requests, open the matching file under references/.
 - Before submitting a real generation job, read [references/system-constraints.md](references/system-constraints.md).
-- Before delivery, run [assets/quality-checklist.md](assets/quality-checklist.md).
+- Before delivery, run [references/quality-checklist.md](references/quality-checklist.md).
 - If the user only wants a story or literary screenplay, use `qisheng-story-screenwriter` instead of expanding this directing workflow.
 
 ## Workflow
@@ -55,11 +55,11 @@ List characters, wardrobe, props, locations, time of day, key colors, voices, mu
 
 ### 4. Prepare visual references when needed
 
-If the user only wants prompts, return the asset plan and copy-ready image prompts. If the user asks for actual images, follow [assets/image-preproduction-workflow.md](assets/image-preproduction-workflow.md) and use the available built-in image generation capability. Generate distinct assets separately, inspect them, preserve successful invariants, and save project-bound outputs into the project.
+If the user only wants prompts, return the asset plan and copy-ready image prompts. If the user asks for actual images, follow [references/image-preproduction-workflow.md](references/image-preproduction-workflow.md) and use the available built-in image generation capability. Generate distinct assets separately, inspect them, preserve successful invariants, and save project-bound outputs into the project.
 
 ### 5. Break the story into shots
 
-For every shot, define its narrative purpose, duration, subject, one primary action, one primary camera move, entry state, exit state, sound cue, and continuity bridge. A storyboard panel must show one photographable moment. Use [references/storyboard-grammar.md](references/storyboard-grammar.md) for spatial continuity and [assets/scene-patterns.md](assets/scene-patterns.md) when a common scene type fits.
+For every shot, define its narrative purpose, duration, subject, one primary action, one primary camera move, entry state, exit state, sound cue, and continuity bridge. A storyboard panel must show one photographable moment. Use [references/storyboard-grammar.md](references/storyboard-grammar.md) for spatial continuity and [references/scene-patterns.md](references/scene-patterns.md) when a common scene type fits.
 
 ### 6. Write generation prompts
 
