@@ -1,6 +1,6 @@
 # Qisheng Seedance Director
 
-这是一个面向 Seedance AI 短片与短剧的 Codex Skill。它把创意、事实核查、分镜、参考素材、人物一致性、运镜、灯光、声音和失败修复组织成可直接执行的生成方案。
+这是一个面向 Seedance AI 短片与短剧的 Codex Skill。它把已确认的创意、故事或文学剧本转换为分镜、参考素材、人物一致性、运镜、灯光、声音和可执行生成方案。
 
 ## 适合做什么
 
@@ -24,6 +24,18 @@
 - 人物第二镜漂移了，帮我诊断并重写提示词。
 
 也可以显式调用 $qisheng-seedance-director。
+
+如果只需要构思故事或编写文学剧本，使用 `$qisheng-story-screenwriter`。完整流程为：
+
+```text
+qisheng-story-screenwriter
+故事方案 → 文学剧本 → screenplay-to-director 交接包
+  ↓
+qisheng-seedance-director
+分镜头脚本 → 镜头语言 → 视觉资产 → Seedance 提示词
+```
+
+导演 Skill 会保留交接包中锁定的剧情节点、对白、事实边界和连续性状态，只设计视觉表达。
 
 ## 核心规则
 

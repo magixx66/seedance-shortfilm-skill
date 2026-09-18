@@ -1,11 +1,11 @@
 ---
 name: qisheng-seedance-director
-description: Direct, storyboard, write, refine, and diagnose Seedance AI short films and short dramas. Use when the user asks for Seedance prompts, a 15-second AI film, multi-shot AI drama, shot breakdowns, character or scene reference images, storyboard images, first/last frames, camera or lighting design, reference-media assignments, character consistency, first/last-frame continuity, or fixes for failed video generations. Also trigger for requests such as “做个雨夜重逢短片”, “先生成角色和场景参考图”, “把这个镜头优化一下”, “参考这个视频运镜”, and “用我的 Seedance Skill”.
+description: Convert an approved idea, story, or screenplay into Seedance shot plans, camera and lighting design, visual references, continuity controls, generation prompts, and failure diagnosis. Use for storyboards, shot breakdowns, image preproduction, reference assignment, multi-shot consistency, or Seedance prompt refinement; use qisheng-story-screenwriter when the user only wants story or literary screenplay writing.
 ---
 
 # Qisheng Seedance Director
 
-Act as a Seedance short-film director, storyboard artist, and prompt engineer. Turn the user's intent and available materials into shots that can be generated, reviewed, and edited.
+Act as a Seedance short-film director, storyboard artist, and prompt engineer. Turn an approved creative brief, story, screenplay, or `screenplay-to-director` package into shots that can be generated, reviewed, and edited.
 
 ## Working principles
 
@@ -19,10 +19,12 @@ Act as a Seedance short-film director, storyboard artist, and prompt engineer. T
 8. Put titles, dates, maps, and exact typography into post-production unless the user explicitly wants generated text.
 9. Make every storyboard image describe one photographable moment; put temporal motion in the video prompt.
 10. Separate stable continuity facts from shot-specific changes with Continuity Lock and Shot Delta.
+11. Preserve locked plot beats, protected dialogue, factual boundaries, and scene states from the approved screenplay.
 
 ## Route the request
 
 - For a single 4–10 second shot, use [assets/prompt-templates.md](assets/prompt-templates.md) and only the relevant references.
+- For a `screenplay-to-director` package, first read [references/screenwriter-handoff.md](references/screenwriter-handoff.md) and preserve its locked fields.
 - For a 15-second scene with several beats, use the timeline template in [assets/prompt-templates.md](assets/prompt-templates.md).
 - For a 60–90 second drama, read [assets/short-drama-workflow.md](assets/short-drama-workflow.md) and build an asset manifest before prompts.
 - For character sheets, scene references, storyboard images, or first/last frames, read [assets/image-preproduction-workflow.md](assets/image-preproduction-workflow.md). Generate images only when the user asks for actual assets.
@@ -31,18 +33,21 @@ Act as a Seedance short-film director, storyboard artist, and prompt engineer. T
 - For camera, light, sound, character, or troubleshooting requests, open the matching file under references/.
 - Before submitting a real generation job, read [references/system-constraints.md](references/system-constraints.md).
 - Before delivery, run [assets/quality-checklist.md](assets/quality-checklist.md).
+- If the user only wants a story or literary screenplay, use `qisheng-story-screenwriter` instead of expanding this directing workflow.
 
 ## Workflow
 
 ### 1. Define the production target
 
-Infer what is already clear. Resolve only missing facts that change the result: platform/model version, total duration, aspect ratio, audience, dialogue language, available references, desired realism, and whether the user wants a plan, prompts, or actual generation.
+Infer what is already clear. Resolve only missing facts that change the result: platform/model version, total duration, aspect ratio, available references, desired realism, and whether the user wants shot design, image preproduction, prompts, diagnosis, or actual generation.
 
 For historical, scientific, political, legal, or other factual stories, verify claims before presenting them as fact. Mark dramatic reconstruction, compressed chronology, and invented dialogue clearly.
 
-### 2. Write the story spine
+### 2. Confirm the narrative handoff
 
-State the audience and intended feeling, opening hook, turning point, ending image or line, and facts or sensitivities that constrain the treatment.
+When a `screenplay-to-director` package is present, lock its scene IDs, mandatory plot beats, protected dialogue, factual boundaries, and continuity states. Extract the intended feeling, visual objective, turning point, and ending image without rewriting the screenplay. Return unresolved narrative gaps to `qisheng-story-screenwriter`.
+
+If the user explicitly skips screenplay development and asks for direct visual planning, create only a minimal director brief: production purpose, visual objective, essential action, ending state, and factual boundary. Do not expand it into an unrequested literary screenplay.
 
 ### 3. Build the asset and continuity bible
 
@@ -77,9 +82,11 @@ Specify ambient sound, foreground effects, music, and intentional silence. Conne
 
 Identify the dominant failure, change one variable at a time, and keep successful elements locked. Use [references/failures-fixes.md](references/failures-fixes.md).
 
-## Default output
+## Choose and deliver the output
 
-For a complete short-film request, return:
+If the user has not said what to deliver, ask whether they want shot design, image preproduction, Seedance prompts, generation diagnosis, or actual generation. If the deliverable is already clear, execute it without asking again.
+
+For a full production package explicitly requested by the user, return:
 
 1. production goal and factual boundary;
 2. character and asset manifest;
@@ -91,7 +98,7 @@ For a complete short-film request, return:
 8. continuity handoffs and edit notes;
 9. generation order and quality check results.
 
-For a prompt-only request, return the finished prompt first, followed by a short explanation of the main choices. For a diagnosis request, return the likely cause, the smallest corrective change, and a revised prompt.
+For a prompt-only request, return the finished prompt first, followed by a short explanation of the main choices. For a diagnosis request, return the likely cause, the smallest corrective change, and a revised prompt. Do not add unrequested full-project sections.
 
 ## Generation boundary
 
