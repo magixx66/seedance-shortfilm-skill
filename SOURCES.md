@@ -62,7 +62,7 @@
 
 - 地址：https://github.com/lrvaka/claude-skills
 - 吸收内容：图片编辑中分开描述修改项与保留项、多图职责和单变量迭代。
-- 处理方式：与内置 imagegen 的安全工作流结合，未采用第三方 API 运行方式。
+- 处理方式：与当前客户端内置生图工具的安全工作流结合，未采用第三方 API 运行方式。
 - 仓库声明为 MIT License。
 
 ## 10. gainubi/storyboard-video-skill
